@@ -1,6 +1,6 @@
 ---
 - name: Basic System Setup
-  hosts: web
+  hosts: localhost
   become: true
   vars: 
     user_name: 'sean'
@@ -8,7 +8,7 @@
     security_only: true
   tasks:
     - name: Update all security-related packages
-      ansible.builtin.packages:
+      ansible.builtin.package:
             name: "*"
             status: ""{{package_state}}""
             security: t""{{security_only}}""
